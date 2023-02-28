@@ -441,6 +441,11 @@ function instructionsButton() {
         if (instructNumber < questionTypes.length) { // 7
             instructionsQuestion(questionTypes[instructNumber]);
         } else {
+            let submitForm = document.createElement("form");
+            submitForm.setAttribute("action", "#");
+            submitForm.setAttribute("method", "post");
+            submitForm.style.display = 'none';
+            document.body.append(submitForm);
             let submitBut = document.createElement("input");
             submitBut.setAttribute("type", "submit");
             submitBut.setAttribute("name", "submitButton");
