@@ -42,7 +42,7 @@ let modal = document.getElementById("instructionsModal");
 
 // Study control variables
 let instructNumber = -1;
-// let questionBlockNumber = -1;
+let questionBlockNumber = -1;
 let questionNumber = 0;
 let inQuestionBlock = false;
 // let blockNumber = 0;
