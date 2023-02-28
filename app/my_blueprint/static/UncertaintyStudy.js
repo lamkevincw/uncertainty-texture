@@ -110,7 +110,7 @@ function startStudy() {
         inQuestionBlock = true;
         instructionsVis(questionBlockNumber);
     } else {
-        startQuestionBlock(blockOrder[questionBlockNumber]);
+        startQuestionBlock(blockOrder[0]);
     }
 }
 
@@ -390,8 +390,8 @@ function endTrial(e) {
     clearUI();
 
     questionNumber++;
-    if (questionNumber < questions[blockOrder[questionBlockNumber]].length) {
-        startTrial(blockOrder[questionBlockNumber]);
+    if (questionNumber < questions[blockOrder[0]].length) {
+        startTrial(blockOrder[0]);
     } else {
         endQuestionBlock();
     }
@@ -453,7 +453,7 @@ function instructionsButton() {
         inQuestionBlock = true;
         instructionsVis(questionBlockNumber);
     } else {
-        startQuestionBlock(blockOrder[questionBlockNumber]);
+        startQuestionBlock(blockOrder[0]);
     }
 }
 
