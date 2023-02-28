@@ -85,6 +85,7 @@ function setup() {
     //     }
     // }
     blockOrder = [Object.keys(visTypes)[conditionNumber - 1]];
+    questionBlockNumber = conditionNumber - 1;
 
     // Set up event listeners
     canvas = document.getElementById("answerCanvas");
@@ -418,12 +419,12 @@ function startQuestionBlock(qType) {
 function endQuestionBlock() {
     studyOrder = [];
 
-    questionBlockNumber++;
-    if (questionBlockNumber < blockOrder.length) {
-        instructionsVis(questionBlockNumber);
-    } else {
-        endStudy();
-    }
+    // questionBlockNumber++;
+    // if (questionBlockNumber < blockOrder.length) {
+    //     instructionsVis(questionBlockNumber);
+    // } else {
+    endStudy();
+    // }
 }
 
 function instructionsButton() {
