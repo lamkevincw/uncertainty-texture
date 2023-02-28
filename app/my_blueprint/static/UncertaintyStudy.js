@@ -104,9 +104,14 @@ function setup() {
 }
 
 function startStudy() {
-    // blockNumber = 0;
-    // startBlock();
-    instructionsStart();
+    if (conditionNumber - 1 === -1) {
+        instructionsStart();
+    } else if (!inQuestionBlock) {
+        inQuestionBlock = true;
+        instructionsVis(questionBlockNumber);
+    } else {
+        startQuestionBlock(blockOrder[questionBlockNumber]);
+    }
 }
 
 function endStudy() {
@@ -431,9 +436,19 @@ function instructionsButton() {
     clearInstructions();
     window.scrollTo(0, 0);
 
-    instructNumber++;
-    if (instructNumber < questionTypes.length) { // 7
-        instructionsQuestion(questionTypes[instructNumber]);
+    if (conditionNumber - 1 === -1) {
+        instructNumber++;
+        if (instructNumber < questionTypes.length) { // 7
+            instructionsQuestion(questionTypes[instructNumber]);
+        } else {
+            let submitBut = document.createElement("input");
+            submitBut.setAttribute("type", "submit");
+            submitBut.setAttribute("name", "submitButton");
+            submitBut.setAttribute("value", "Continue");
+            submitBut.style.display = 'none';
+            submitForm.append(submitBut);
+            submitBut.click();
+        }
     } else if (!inQuestionBlock) {
         inQuestionBlock = true;
         instructionsVis(questionBlockNumber);

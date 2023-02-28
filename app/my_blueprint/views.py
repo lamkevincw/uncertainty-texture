@@ -41,7 +41,13 @@ def uncertaintyTask(condNum):
 @verify_correct_page
 @verify_session_valid
 def uncertaintyTaskTraining():
-    return uncertaintyTask(0)
+    pID = session['participantID']
+
+    if request.method == 'POST':
+        if request.form['submitButton'] == "Continue":
+            return redirect("/redirect_next_page")
+
+    return render_template("UncertaintyStudy.html", pID=pID, condNum=0)
 
 @my_blueprint.route("/uncertaintyTaskMain", methods=['POST', 'GET'])
 @verify_correct_page
