@@ -477,7 +477,7 @@ function instructionsVis(visNumber) {
     document.getElementById("vis-text").textContent = "";
     document.getElementById("vis-img2").src = "";
 
-    let currentVisNumber = Object.keys(visTypes).indexOf(blockOrder[visNumber]);
+    let currentVisNumber = Object.keys(visTypes).indexOf(blockOrder[0]);
     document.getElementById("vis-title").textContent = "Type " + letters[currentVisNumber];
     document.getElementById("vis-text").textContent = instructionText.visPage[currentVisNumber]["text"];
     document.getElementById("vis-img2").src = window.origin + "/my_blueprint/images/" + instructionText.visPage[currentVisNumber]["img-2"];
