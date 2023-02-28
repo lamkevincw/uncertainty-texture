@@ -1,0 +1,74 @@
+{
+	"title": "Post-Study Questionnaire",
+	"instructions": "Please rate your experience with the study that you have just completed.",
+	"code": "",
+	"questions": [
+		{
+		    "questiontype": "textview",
+			"instructions": "Use the images of the visualization types to answer the next THREE following questions.",
+			"text": "Type A <img style='width: 100%' src='/my_blueprint/images/texture-dots-instruct.png'>\n\nType B<img style='width: 100%' src='/my_blueprint/images/texture-cross-instruct.png'>"
+		},
+		{
+		    "questiontype": "radiolist",
+		    "instructions": "Which visualization type did you like, or prefer, the most?",
+		    "id": "visTypeMost",
+		    "horizontal": false,
+			"required": true,
+			"labels": [
+				"Type A",
+				"Type B"
+		    ]
+		},
+		{
+		    "questiontype": "radiolist",
+		    "instructions": "Which visualization type did you like, or prefer, the least?",
+		    "id": "visTypeLeast",
+		    "horizontal": false,
+			"required": true,
+			"labels": [
+				"Type A",
+				"Type B"
+		    ]
+		},
+		{
+		    "questiontype": "radiolist",
+		    "instructions": "How fast were you in this set of tasks?",
+		    "id": "speed",
+		    "horizontal": false,
+			"required": true,
+			"labels": [
+				"Very Slow",
+				"Slow",
+				"Somewhat Slow",
+				"Neutral",
+				"Somewhat Fast",
+				"Fast",
+				"Very Fast"
+		    ]
+		},
+		{
+		    "questiontype": "radiolist",
+		    "instructions": "How accurate were you in this set of tasks?",
+		    "id": "accuracy",
+		    "horizontal": false,
+			"required": true,
+			"labels": [
+				"Very Inaccurate",
+				"Inaccurate",
+				"Somewhat Inaccurate",
+				"Neutral",
+				"Somewhat Accurate",
+				"Accurate",
+				"Very Accurate"
+		    ]
+		},
+		{
+			"questiontype": "multi_field",
+			"id": "additionalComments",
+			"placeholder": "Additional comments",
+			"instructions": "Are there any additional comments or suggestions that you would like to share?",
+			"height": 100,
+			"width": 600
+		}
+  ]
+}

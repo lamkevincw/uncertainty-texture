@@ -1,0 +1,70 @@
+{% extends "template.html" %}
+{% block head %}
+{% endblock %}
+
+{% block content %}
+<style>
+    .videoEmbed {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .continueButton {
+        position: absolute;
+        right: 3%;
+        bottom: 10%;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .loadingText {
+        position: absolute;
+        right: 1%;
+        bottom: 10%;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .videoLoad {
+        position: absolute;
+        top: 10%;
+        left: 2%;
+        font-size: 20px;
+    }
+</style>
+
+<div class="videoEmbed">
+    <video id="instructionalVideo" width="1120" height="630" controls>
+        <source src="{{ url_for('my_blueprint.static', filename='Expressive Study Instructions 2.mp4') }}"
+            type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+<label class="videoLoad"><b>Instruction Video</b><br><br>Video may take<br>a few moments<br>to load.</label>
+
+<form id="form" action="#" method="post" onsubmit="return loadingMessage();">
+    <input type="submit" class="continueButton" id="continueButton" name="submitButton" value="Continue">
+</form>
+
+<script type='text/javascript'>
+    document.getElementById("continueButton").hidden = true;
+    document.getElementById('instructionalVideo').addEventListener('ended', showContinueButton, false);
+
+    function showContinueButton(e) {
+        document.getElementById("continueButton").hidden = false;
+    }
+
+    function loadingMessage() {
+        document.getElementById("continueButton").hidden = true;
+
+        var loadingMessage = document.createElement("label");
+        loadingMessage.className = "loadingText";
+        loadingMessage.textContent = "Now loading...";
+        document.body.append(loadingMessage);
+
+        return true;
+    }
+</script>
+{% endblock %}

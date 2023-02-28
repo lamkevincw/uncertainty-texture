@@ -1,0 +1,147 @@
+{
+	"title": "Post-Condition Questionnaire",
+	"instructions": "Please rate your experience with the condition that you have just completed.",
+	"code": "",
+	"questions": [
+		{
+		  "questiontype": "radiogrid",
+		  "instructions": "Please provide a rating on the previous set of tasks:",
+		  "id": "nasaTLX",
+		  "shuffle": false,
+		  "required": true,
+		  "labels": [
+			"Very Low",
+			"Low",
+			"Somewhat Low",
+			"Neutral",
+			"Somewhat High",
+			"High",
+			"Very High"
+		  ],
+		  "q_text": [
+			{
+			  "id": "mental",
+			  "text": "Mental Demand"
+			},
+			{
+			  "id": "physical",
+			  "text": "Physical Demand"
+			},
+			{
+			  "id": "temporal",
+			  "text": "Time Pressure"
+			},
+			{
+			  "id": "performance",
+			  "text": "Your Performance"
+			},
+			{
+			  "id": "effort",
+			  "text": "Your Effort"
+			},
+			{
+			  "id": "frustration",
+			  "text": "Frustration Level"
+			}
+		  ]
+		},
+		{
+			"questiontype": "radiolist",
+			"instructions": "Did you encounter any errors in the system (not caused by you) while completing the tasks?",
+			"id": "noticeErrors",
+			"horizontal": false,
+			"required": true,
+			"labels":[
+				"Yes",
+				"No"
+			]
+		},
+		{
+			"questiontype": "multi_field",
+			"id": "whatErrors",
+			"placeholder": "Please list the errors you encountered.",
+			"instructions": "If you answered 'Yes' to the question above, please specify the type of errors that occurred:",
+			"height": 100,
+			"width": 600
+		},
+		{
+			"questiontype": "num_field",
+			"datatype": "integer",
+			"instructions": "If you answered 'Yes' to the question above, how often did the errors occur (%)?",
+			"id": "errorPercent",
+			"min": 0,
+			"max": 100,
+			"width": 100
+		},
+		{
+		    "questiontype": "radiolist",
+		    "instructions": "How easy was it for you to learn the items in this set of tasks?",
+		    "id": "easyLearning",
+		    "horizontal": false,
+			"required": true,
+			"labels": [
+				"Very Poorly",
+				"Poorly",
+				"Somewhat Poorly",
+				"Neutral",
+				"Somewhat Well",
+				"Well",
+				"Very Well"
+		    ]
+		},
+		{
+			"questiontype": "radiolist",
+		    "instructions": "How well did you memorize the items by the end of the previous set of tasks?",
+		    "id": "memorize",
+			"horizontal": false,
+			"required": true,
+			"labels": [
+				"Very Poorly",
+				"Poorly",
+				"Somewhat Poorly",
+				"Neutral",
+				"Somewhat Well",
+				"Well",
+				"Very Well"
+		    ]
+		},
+		{
+			"questiontype": "radiolist",
+			"instructions": "Was there anything in the previous set of tasks that hindered your learning of the items?",
+			"id": "hinderedLearning",
+			"horizontal": false,
+			"required": true,
+			"labels":[
+				"Yes",
+				"No"
+			]
+		},
+		{
+			"questiontype": "multi_field",
+			"id": "whatHindered",
+			"placeholder": "Please list the hindrances you encountered.",
+			"instructions": "If you answered 'Yes' to the question above, please specify the hindrances that occurred:",
+			"height": 100,
+			"width": 600
+		},
+		{
+			"questiontype": "radiolist",
+			"instructions": "Did the items that you memorized in a previous condition interfere with learning this set of items?",
+			"id": "interference",
+			"horizontal": false,
+			"required": true,
+			"labels":[
+				"Yes",
+				"No"
+			]
+		},
+		{
+			"questiontype": "multi_field",
+			"id": "additionalComments",
+			"placeholder": "Additional comments",
+			"instructions": "Are there any additional comments or suggestions that you would like to share?<br>Did any part of the study take a long time to load?",
+			"height": 100,
+			"width": 600
+		}
+  ]
+}

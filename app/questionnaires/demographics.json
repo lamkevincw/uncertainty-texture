@@ -1,0 +1,93 @@
+{
+	"title": "Demographics Questionnaire",
+	"instructions": "Please complete this demographics form.",
+	"code": "",
+	"questions": [
+		{
+			"questiontype": "field",
+			"instructions": "I identify as:",
+			"placeholder": "Gender",
+			"id": "gender",
+			"required": true
+		},
+		{
+			"questiontype": "num_field",
+			"datatype": "integer",
+			"instructions": "Age:",
+			"id": "age",
+			"required": true,
+			"min": 0,
+			"max": 150
+		},
+		{
+			"questiontype": "field",
+			"instructions": "Occupation:",
+			"placeholder": "Please enter your occupation.",
+			"id": "occupation",
+			"required": true
+		},
+		{
+		  "questiontype": "radiolist",
+		  "instructions": "Which operating system are you currently using to complete this study?",
+		  "id": "opSystem",
+		  "shuffle": false,
+		  "horizontal": false,
+		  "required": true,
+		  "labels": [
+				"Windows",
+				"macOS",
+				"Linux"
+		  ]
+		},
+		{
+			"questiontype": "num_field",
+			"datatype": "integer",
+			"instructions": "In an average week, how many hours do you spend using computers (including PCs and mobile devices)?",
+			"id": "compUsage",
+			"required": true,
+			"min": 0
+		},
+		{
+			"questiontype": "num_field",
+			"datatype": "integer",
+			"instructions": "In an average week, how many hours do you spend playing computer, video, or console games?",
+			"id": "gameUsage",
+			"required": true,
+			"min": 0
+		},
+		{
+			"questiontype": "num_field",
+			"datatype": "integer",
+			"instructions": "In an average week, how many hours do you spend using information visualizations (e.g., 2D or 3D visual charts, plots, or visual representations of data)?",
+			"id": "visUsage",
+			"required": true,
+			"min": 0
+		},
+		{
+			"questiontype": "field",
+			"instructions": "What are the main types of visualizations that you work with (if any)?",
+			"placeholder": "Visualizations",
+			"id": "visTypes",
+			"required": false
+		},
+		{
+		  "questiontype": "radiolist",
+		  "instructions": "Do you have any form of colour-vision deficiency (commonly known as 'colour blindness')?",
+		  "id": "CVD",
+		  "shuffle": false,
+		  "horizontal": false,
+		  "required": true,
+		  "labels": [
+				"Yes",
+				"No"
+		  ]
+		},
+		{
+			"questiontype": "field",
+			"instructions": "If you answered yes to the previous question, please describe your type of colour-vision deficiency.",
+			"placeholder": "",
+			"id": "cvdType",
+			"required": false
+		}
+  ]
+}

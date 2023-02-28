@@ -1,0 +1,49 @@
+{
+	"title": "Effort Questionnaire",
+	"instructions": "Please rate your experience with the set of questions that you have just completed.",
+	"code": "",
+	"questions": [
+		{
+		  "questiontype": "radiogrid",
+		  "instructions": "Please provide a rating on the tasks completed while the guide was available:",
+		  "id": "nasaTLX",
+		  "shuffle": false,
+		  "required": true,
+		  "labels": [
+			"Very Low",
+			"Low",
+			"Somewhat Low",
+			"Neutral",
+			"Somewhat High",
+			"High",
+			"Very High"
+		  ],
+		  "q_text": [
+			{
+			  "id": "mental",
+			  "text": "Mental Demand"
+			},
+			{
+			  "id": "physical",
+			  "text": "Physical Demand"
+			},
+			{
+			  "id": "temporal",
+			  "text": "Time Pressure"
+			},
+			{
+			  "id": "performance",
+			  "text": "Your Performance"
+			},
+			{
+			  "id": "effort",
+			  "text": "Your Effort"
+			},
+			{
+			  "id": "frustration",
+			  "text": "Frustration Level"
+			}
+		  ]
+		}
+  ]
+}

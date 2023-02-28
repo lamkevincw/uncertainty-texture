@@ -1,0 +1,337 @@
+{% extends "template.html" %}
+{% block head %}
+{% endblock %}
+
+{% block content %}
+
+<style>
+    * {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    .answerBox {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: auto;
+        width: 1250px;
+        border: 1px solid black;
+        padding: 30px 0px;
+        font-family: Verdana, sans-serif;
+    }
+
+    .answerCanvas {
+        margin: 30px auto 10px auto;
+    }
+
+    .answersForm {
+        margin: auto;
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Verdana, sans-serif;
+    }
+
+    .layered {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .layered>* {
+        grid-column-start: 1;
+        grid-row-start: 1;
+    }
+
+    .body {
+        font-family: Verdana, sans-serif;
+    }
+
+    .imageDiv {
+        margin: 30px auto;
+        height: 800px;
+        display: flex;
+    }
+
+    /* .imageDoubleLabel {
+        margin-left: 300px;
+        margin-right: 300px;
+    }
+
+    .imageLabelDiv {
+        position: absolute;
+        top: 510px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        font-size: 20px;
+        display: flex;
+        font-family: Verdana, sans-serif;
+    }
+
+    .imageSingleLabel {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+
+    .instructionsDiv {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        right: 20px;
+        height: 900px;
+        border: 10px solid black;
+        background-color: white;
+    } */
+
+    .imgDiv {
+        margin: 20px auto;
+        display: flex;
+        align-items: center;
+    }
+
+    .questionFigure {
+        max-width: 1200px;
+        margin: auto;
+        flex: 50%;
+    }
+
+    .questionImage {
+        margin: 10px auto;
+        max-width: 1200px;
+        max-height: 800px;
+    }
+
+    .instructImage {
+        margin: 10px auto;
+        max-height: 400px;
+        max-width: 1000px;
+    }
+
+    .imageCaption {
+        text-align: center;
+    }
+
+    .instructText {
+        font-size: large;
+        white-space: pre-line;
+    }
+
+    .instructButton {
+        margin: 20px auto 0px auto;
+        font-size: larger;
+    }
+
+    .instructTitle {
+        margin: 0 auto;
+        font-size: x-large;
+    }
+
+    .modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black w/ opacity */
+    }
+
+    .modal-body {
+        display: none;
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 80px auto;
+        /* 15% from the top and centered */
+        padding: 40px;
+        border: 1px solid #888;
+        width: 90%;
+        /* Could be more or less, depending on screen size */
+    }
+
+    .modal-footer {
+        margin-top: 20px;
+        background-color: #fefefe;
+        display: flex;
+        align-items: center;
+    }
+
+    .multiplesSeparateImage {
+        display: none;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .titleDiv {
+        display: flex;
+        align-items: center;
+    }
+
+    .multipleChoiceAnswer {
+        margin: 0 5px 0 0;
+    }
+
+    .multipleChoiceLabel {
+        margin: 0 30px 0 0;
+        text-align: center;
+    }
+
+    .questionBox {
+        margin: 20px auto 30px auto;
+        width: 90%;
+        border: 1px solid black;
+        padding: 30px;
+        font-family: Verdana, sans-serif;
+        text-align: center;
+    }
+
+    .questionInstructImage {
+        border: 10px solid black;
+    }
+
+    .questionText {
+        font-size: 20px;
+        white-space: pre-line;
+    }
+
+    /* .rangeAnswer {
+        width: 300px;
+        vertical-align: middle;
+        margin-right: 20px;
+    }  */
+
+    .reasonBoxAnswer {
+        width: 500px;
+        height: 100px;
+        margin: auto 10px;
+        resize: none;
+    }
+
+    .reasonLabel {
+        margin: 0 0px 0 0;
+    }
+
+    .studyNumbers {
+        position: absolute;
+        top: 20px;
+        right: 2%;
+        width: 150px;
+        font-size: 16px;
+    }
+
+    .submitButton {
+        margin: auto 10px;
+        font-size: 14px;
+    }
+
+    .textboxAnswer {
+        width: 500px;
+        height: 100px;
+        margin: auto 10px;
+        resize: none;
+    }
+</style>
+
+<div id="top"></div>
+<div class="studyNumbers">
+    <!-- <label id="blockNumberLabel"></label>
+    <br /> -->
+    <label id="trialNumberLabel"></label>
+</div>
+
+<div class="questionBox">
+    <span id="questionText" class="questionText"></span>
+</div>
+
+<div class="answerBox">
+    <form id="answersForm" class="answersForm" name="answersForm" onsubmit="endTrial(event)"></form>
+</div>
+
+<div class="layered">
+    <div class="imageDiv">
+        <figure class="questionFigure">
+            <img id="question-img1" src="" class="questionImage" />
+            <figcaption id="figcaption1" class="imageCaption"></figcaption>
+        </figure>
+        <figure id="secondFigure" class="questionFigure">
+            <img id="question-img2" src="" class="questionImage" />
+            <figcaption id="figcaption2" class="imageCaption"></figcaption>
+        </figure>
+        <!-- <img id="imageDouble1" src="" class="doubleImg" />
+    <img id="imageDouble2" src="" class="doubleImg" /> -->
+    </div>
+    <canvas id="answerCanvas" class="answerCanvas" width="1200" height="800"></canvas>
+</div>
+<div id="multSepDiv" class="multiplesSeparateImage imageDiv">
+    <img id="question-img3" src="" class="questionImage" />
+</div>
+
+<div id="instructionsModal" class="modal">
+    <div class="modal-content">
+        <!--Start Page-->
+        <div id="start-page" class="modal-body">
+            <span id="start-text1" class="instructText"></span>
+            <div class="imgDiv">
+                <img id="start-img1" class="instructImage" />
+            </div>
+            <span id="start-text2" class="instructText"></span>
+            <div class="imgDiv">
+                <img id="start-img2" class="instructImage" />
+                <img id="start-img3" class="instructImage" />
+            </div>
+            <span id="start-text3" class="instructText"></span>
+        </div>
+        <!--Vis Type Pages-->
+        <div id="vis-instructions" class="modal-body">
+            <div class="titleDiv">
+                <span id="vis-title" class="instructTitle"></span>
+            </div>
+            <div class="imgDiv" style="margin-bottom: 60px;">
+                <img id="vis-img2" class="instructImage" />
+            </div>
+            <span id="vis-text" class="instructText"></span>
+        </div>
+        <!--Question Pages-->
+        <div id="question-instructions" class="modal-body">
+            <div class="titleDiv">
+                <span id="question-title" class="instructTitle"></span>
+            </div>
+            <div class="imgDiv">
+                <img id="question-img" class="instructImage questionInstructImage" />
+            </div>
+            <span id="question-text" class="instructText"></span>
+        </div>
+        <div class="modal-footer">
+            <button class="instructButton" onclick="instructionsButton()">Continue</button>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    participantID = {{ pID }};
+    var conditionNumber = {{ condNum }};
+</script>
+<!-- <script src="instructions.js"></script>
+<script src="questions.js"></script>
+<script src="UncertaintyStudy.js"></script> -->
+<script src="{{ url_for('my_blueprint.static', filename='instructions.js') }}"></script>
+<script src="{{ url_for('my_blueprint.static', filename='questions.js') }}"></script>
+<script src="{{ url_for('my_blueprint.static', filename='UncertaintyStudy.js') }}"></script>
+
+{% endblock %}
