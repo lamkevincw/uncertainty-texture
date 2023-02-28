@@ -5,7 +5,7 @@
 	"questions": [
 		{
 		    "questiontype": "textview",
-			"instructions": "Use the images of the visualization types to answer the next THREE following questions.",
+			"instructions": "Use the images of the visualization types to answer the next TWO following questions.",
 			"text": "Type A <img style='width: 100%' src='/my_blueprint/images/texture-dots-instruct.png'>\n\nType B<img style='width: 100%' src='/my_blueprint/images/texture-cross-instruct.png'>"
 		},
 		{
