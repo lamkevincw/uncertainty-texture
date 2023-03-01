@@ -317,7 +317,7 @@ const questions = {
                 "values": ["Very Unlikely", "Unlikely", "Slightly Unlikely", "Neutral", "Slightly Likely", "Likely", "Very Likely"]
             },
             "correctAnswer": "Unlikely",
-            "image": ["texture-edit11.png"],
+            "image": ["texture-edit9.png"],
             "type": "subjective",
             "orderGroup": 2,
             "RQ": 1
